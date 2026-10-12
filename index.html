@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AYOUBE SHOP | المنصة الرقمية</title>
+    <!-- خط كايرا العربي -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        body {
+            background-color: #f8fafc;
+            color: #0f172a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+        }
+
+        .app-container {
+            width: 100vw;
+            height: 100vh;
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-scroll {
+            overflow-y: auto;
+            padding: 0 16px 95px 16px;
+            flex: 1;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .app-scroll::-webkit-scrollbar {
+            width: 3px;
+        }
+        .app-scroll::-webkit-scrollbar-thumb {
+            background: rgba(225, 29, 72, 0.3);
+            border-radius: 10px;
+        }
+
+        /* الهيدر الاحترافي */
+        .pro-hero-header {
+            position: relative;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            margin-right: calc(-50vw + 50%);
+            padding: 16px;
+            background: linear-gradient(180deg, rgba(225, 29, 72, 0.06) 0%, rgba(255, 255, 255, 0) 100%);
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .store-top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 480px;
+            padding: 0 4px;
+        }
+
+        .store-brand-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-avatar-wrapper {
+            position: relative;
+            width: 42px;
+            height: 42px;
+            flex-shrink: 0;
+        }
+
+        .hero-avatar-wrapper img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #e11d48;
+            box-shadow: 0 4px 12px rgba(225, 29, 72, 0.2);
+        }
+
+        .hero-status-badge {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 11px;
+            height: 11px;
+            background: #22c55e;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+        }
+
+        .hero-title-area {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .hero-title {
+            font-size: 15px;
+            font-weight: 900;
+            color: #0f172a;
+            letter-spacing: 0.2px;
+        }
+
+        .hero-verified-icon {
+            width: 15px;
+            height: 15px;
+            fill: #0ea5e9;
+            flex-shrink: 0;
+        }
+
+        .hero-subtitle-badge {
+            background: #f1f5f9;
+            color: #475569;
+            font-size: 9px;
+            font-weight: 800;
+            padding: 4px 8px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        /* ستايل قائمة القنوات والدعم بنقطة الحالة الخضراء */
+        .channels-list-section {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 14px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .channels-list-section:hover {
+            border-color: #cbd5e1;
+        }
+        .wa-channel-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .wa-channel-card-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-direction: row-reverse;
+            text-align: right;
+        }
+        .card-avatar-wrapper {
+            position: relative;
+            width: 44px;
+            height: 44px;
+            flex-shrink: 0;
+        }
+        .card-avatar-wrapper img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1.5px solid #e11d48;
+        }
+        .card-status-badge {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 11px;
+            height: 11px;
+            background: #22c55e;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+        }
+        .wa-channel-card-details h4 {
+            font-size: 14px;
+            font-weight: 800;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            justify-content: flex-end;
+        }
+        .wa-channel-card-details p {
+            font-size: 11px;
+            color: #64748b;
+            margin-top: 2px;
+        }
+        .wa-channel-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .wa-follow-btn {
+            background: #f1f5f9;
+            color: #0f172a;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 11.5px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .wa-follow-btn.followed {
+            background: #22c55e;
+            color: #ffffff;
+        }
+        .wa-bell-btn {
+            background: #fdf2f4;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #e11d48;
+            transition: 0.2s;
+        }
+        .wa-bell-btn.muted {
+            color: #94a3b8;
+            background: #f1f5f9;
+        }
+        .wa-bell-btn svg {
+            width: 15px;
+            height: 15px;
+            fill: currentColor;
+        }
+
+        /* أنظمة الصفحات */
+        .page-section {
+            display: none;
+        }
+        .page-section.active {
+            display: block;
+        }
+
+        /* عرض القناة من الداخل */
+        #channel-view-container {
+            display: none;
+            animation: fadeIn 0.25s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .channels-header-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0 12px 0;
+        }
+        .channels-title {
+            font-size: 18px;
+            font-weight: 900;
+            color: #0f172a;
+        }
+
+        .wa-embedded-channel {
+            background: #efeae2;
+            border: 1px solid #cbd5e1;
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - 220px);
+            min-height: 420px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+            margin-bottom: 20px;
+        }
+        .wa-ch-header {
+            background: #075e54;
+            color: #ffffff;
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .wa-ch-user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-direction: row-reverse;
+            text-align: right;
+        }
+        .wa-ch-user-info img {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1.5px solid #25d366;
+        }
+        .wa-ch-user-details h4 {
+            font-size: 13.5px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            justify-content: flex-end;
+        }
+        .wa-ch-user-details span {
+            font-size: 10.5px;
+            color: #d1fae5;
+        }
+        .wa-ch-body {
+            flex: 1;
+            padding: 14px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .wa-post-bubble {
+            background: #ffffff;
+            padding: 12px 14px;
+            border-radius: 10px;
+            font-size: 12px;
+            color: #111827;
+            max-width: 90%;
+            line-height: 1.6;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            align-self: flex-end;
+            text-align: right;
+            border-top-right-radius: 0;
+            position: relative;
+        }
+        .wa-post-bubble b {
+            color: #075e54;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .wa-post-time {
+            font-size: 9.5px;
+            color: #9ca3af;
+            float: left;
+            margin-top: 6px;
+        }
+        .wa-ch-footer-note {
+            background: #ffffff;
+            padding: 10px 14px;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+            font-size: 11px;
+            color: #64748b;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        .wa-ch-footer-note span {
+            color: #25d366;
+            font-weight: 900;
+        }
+
+        .back-to-channels-btn {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            color: #0f172a;
+            font-size: 12px;
+            font-weight: 800;
+            cursor: pointer;
+            padding: 8px 14px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.2s;
+        }
+        .back-to-channels-btn:hover {
+            background: #e2e8f0;
+        }
+
+        /* ستايل صفحة الخدمات */
+        .services-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .service-box-item {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            flex-direction: row-reverse;
+        }
+        .service-box-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-direction: row-reverse;
+            text-align: right;
+        }
+        .service-box-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            background: #fdf2f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #e11d48;
+            font-weight: 900;
+            font-size: 18px;
+            border: 1px solid rgba(225, 29, 72, 0.2);
+        }
+        .service-box-info h4 {
+            font-size: 14px;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 3px;
+        }
+        .service-box-info p {
+            font-size: 11px;
+            color: #64748b;
+        }
+        .service-order-btn {
+            background: #0f172a;
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 11.5px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .service-order-btn:hover {
+            background: #e11d48;
+        }
+
+        /* تصميم واجهة الشات الداخلي */
+        .whatsapp-chat-box {
+            background: #efeae2;
+            border: 1px solid #cbd5e1;
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - 170px);
+            min-height: 450px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+            margin-top: 5px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .wa-chat-header {
+            background: #075e54;
+            color: #ffffff;
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .wa-chat-user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-direction: row-reverse;
+            text-align: right;
+        }
+        .wa-chat-user-info img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .wa-chat-user-details h4 {
+            font-size: 14px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            justify-content: flex-end;
+        }
+        .wa-chat-user-details span {
+            font-size: 11px;
+            color: #25d366;
+            font-weight: 700;
+        }
+        .wa-chat-body {
+            flex: 1;
+            padding: 14px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .wa-message-bubble {
+            background: #ffffff;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 12.5px;
+            color: #111827;
+            max-width: 85%;
+            line-height: 1.5;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            align-self: flex-end;
+            text-align: right;
+            border-top-right-radius: 0;
+            position: relative;
+        }
+        .user-sent-bubble {
+            background: #dcf8c6 !important;
+            align-self: flex-start !important;
+            border-top-right-radius: 8px !important;
+            border-top-left-radius: 0 !important;
+        }
+        .wa-message-time {
+            font-size: 9.5px;
+            color: #9ca3af;
+            float: left;
+            margin-top: 4px;
+            margin-right: 8px;
+        }
+        .wa-chat-footer {
+            background: #f0f2f5;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-top: 1px solid #e2e8f0;
+        }
+        .wa-chat-input {
+            flex: 1;
+            background: #ffffff;
+            border: none;
+            padding: 10px 14px;
+            border-radius: 20px;
+            font-size: 12.5px;
+            outline: none;
+            color: #0f172a;
+        }
+        .wa-action-btn {
+            background: #075e54;
+            color: #ffffff;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: 0.2s;
+            flex-shrink: 0;
+        }
+        .wa-action-btn:active {
+            transform: scale(0.92);
+        }
+        .wa-action-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: #ffffff;
+        }
+        .send-icon svg {
+            transform: rotate(180deg);
+        }
+        .recording-pulse {
+            background: #ef4444 !important;
+            animation: pulseAnim 1.2s infinite;
+        }
+        @keyframes pulseAnim {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5); }
+            70% { transform: scale(1.08); box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+
+        /* شريط التنقل السفلي */
+        .app-bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 62px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-top: 1px solid #f1f5f9;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 90;
+            padding: 0 10px;
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.03);
+        }
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            color: #64748b;
+            text-decoration: none;
+            font-size: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .nav-item.active, .nav-item:hover {
+            color: #e11d48;
+        }
+        .nav-item svg {
+            width: 21px;
+            height: 21px;
+            fill: currentColor;
+        }
+    </style>
+</head>
+<body>
+
+<div class="app-container">
+    <div class="app-scroll">
+        
+        <!-- الهيدر الاحترافي -->
+        <div class="pro-hero-header">
+            <div class="store-top-bar">
+                <div class="store-brand-group">
+                    <div class="hero-avatar-wrapper">
+                        <img src="https://i.ibb.co/Cp7d53Jy/41-C00063-C252-41-D9-80-B0-BCF61-BC9-DBCE.png" alt="AYOUBE SHOP">
+                        <div class="hero-status-badge"></div>
+                    </div>
+                    <div class="hero-title-area">
+                        <h1 class="hero-title">AYOUBE SHOP</h1>
+                        <svg class="hero-verified-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    </div>
+                </div>
+                <div class="hero-subtitle-badge">DIGITAL STORE</div>
+            </div>
+        </div>
+
+        <!-- الصفحة الرئيسية -->
+        <div id="home-page" class="page-section active">
+            
+            <!-- قائمة القنوات -->
+            <div id="channels-list-view">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                    <span style="font-size: 11px; color: #64748b; font-weight: 700;">استكشاف</span>
+                    <h3 class="channels-title" style="font-size: 16px;">القنوات</h3>
+                </div>
+
+                <div class="channels-list-section" onclick="openChannel()">
+                    <div class="wa-channel-card-top">
+                        <div class="wa-channel-actions">
+                            <button id="mainFollowBtn" onclick="toggleFollow(event)" class="wa-follow-btn">متابعة</button>
+                            <button id="mainBellBtn" onclick="toggleBell(event)" class="wa-bell-btn" title="تفعيل الإشعارات">
+                                <svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/></svg>
+                            </button>
+                        </div>
+                        <div class="wa-channel-card-info">
+                            <div class="card-avatar-wrapper">
+                                <img src="https://i.ibb.co/Cp7d53Jy/41-C00063-C252-41-D9-80-B0-BCF61-BC9-DBCE.png" alt="Ayoube Shop">
+                                <div class="card-status-badge"></div>
+                            </div>
+                            <div class="wa-channel-card-details">
+                                <h4>AYOUBE SHOP <svg style="width:13px;height:13px;fill:#0ea5e9;display:inline-block;" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></h4>
+                                <p>77K متابع • اضغط للدخول للقناة</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- عرض القناة من الداخل -->
+            <div id="channel-view-container">
+                <button class="back-to-channels-btn" onclick="closeChannel()">
+                    ← العودة لقائمة القنوات
+                </button>
+
+                <div class="channels-header-area" style="margin-top: 0;">
+                    <span style="font-size: 11px; color: #22c55e; font-weight: 800;">● 77K متابع نشط</span>
+                    <h3 class="channels-title">قناة المتجر الرسمية</h3>
+                </div>
+
+                <div class="wa-embedded-channel">
+                    <div class="wa-ch-header">
+                        <div style="font-size: 16px; font-weight: bold; cursor: pointer;">⋮</div>
+                        <div class="wa-ch-user-info">
+                            <img src="https://i.ibb.co/Cp7d53Jy/41-C00063-C252-41-D9-80-B0-BCF61-BC9-DBCE.png" alt="Ayoube Shop">
+                            <div class="wa-ch-user-details">
+                                <h4>AYOUBE SHOP <svg style="width:13px;height:13px;fill:#0ea5e9;display:inline-block;" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></h4>
+                                <span>77K متابع</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wa-ch-body">
+                        <div class="wa-post-bubble">
+                            <b>🔥 جديد العروض والخدمات الرقمية:</b>
+                            تم توفير جميع خدمات الألعاب وتطبيقات بضمان تام وسرعة فورية في التفعيل. مرحبا بالجميع! 🚀
+                            <span class="wa-post-time">18:40</span>
+                        </div>
+
+                        <div class="wa-post-bubble">
+                            <b>📢 إعلان مهم:</b>
+                            لأي طلب أو استفسار سارع بالتواصل معنا مباشرة عبر قسم الدعم في الأسفل. نَحْن في خدمتك 24/24 ساعة. ✨
+                            <span class="wa-post-time">أمس</span>
+                        </div>
+                    </div>
+
+                    <div class="wa-ch-footer-note">
+                        القناة رسمية ومعتمدة من طرف <span>AYOUBE SHOP</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- صفحة الخدمات الجديدة -->
+        <div id="services-page" class="page-section">
+            <div class="channels-header-area" style="margin-top: 5px;">
+                <span style="font-size: 12px; color: #64748b; font-weight: 700;">جميع الخدمات المتوفرة</span>
+                <h3 class="channels-title">الخدمات الرقمية</h3>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-box-item">
+                    <div class="service-box-right">
+                        <div class="service-box-icon">⚡</div>
+                        <div class="service-box-info">
+                            <h4>خدمات الألعاب Regedit</h4>
+                            <p>أدوات وحلول احترافية للألعاب بضمان تام</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/212710290356?text=سلام، بغيت نستفسر على خدمات الألعاب" class="service-order-btn" target="_blank">طلب الخدمة</a>
+                </div>
+
+                <div class="service-box-item">
+                    <div class="service-box-right">
+                        <div class="service-box-icon">📱</div>
+                        <div class="service-box-info">
+                            <h4>تطبيقات الأندرويد و IOS</h4>
+                            <p>تطبيقات مدفوعة واشتراكات رقمية فورية</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/212710290356?text=سلام، بغيت نستفسر على التطبيقات" class="service-order-btn" target="_blank">طلب الخدمة</a>
+                </div>
+
+                <div class="service-box-item">
+                    <div class="service-box-right">
+                        <div class="service-box-icon">🛡️</div>
+                        <div class="service-box-info">
+                            <h4>خدمات الدعم والتفعيل</h4>
+                            <p>تفعيل الحسابات والخدمات الرقمية بأمان</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/212710290356?text=سلام، بغيت نستفسر على التفعيل" class="service-order-btn" target="_blank">طلب الخدمة</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- صفحة الدعم والتواصل الداخلي -->
+        <div id="support-page" class="page-section">
+            
+            <div id="support-list-view">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                    <span style="font-size: 11px; color: #64748b; font-weight: 700;">التواصل الفوري</span>
+                    <h3 class="channels-title" style="font-size: 16px;">خدمة العملاء</h3>
+                </div>
+
+                <div class="channels-list-section" onclick="openSupportChat()">
+                    <div class="wa-channel-card-top">
+                        <div class="wa-channel-actions">
+                            <span style="background: #22c55e; color: #fff; padding: 5px 12px; border-radius: 20px; font-size: 11px; font-weight: 800;">متصل الآن</span>
+                        </div>
+                        <div class="wa-channel-card-info">
+                            <div class="card-avatar-wrapper">
+                                <img src="https://i.ibb.co/Cp7d53Jy/41-C00063-C252-41-D9-80-B0-BCF61-BC9-DBCE.png" alt="Ayoube Shop">
+                                <div class="card-status-badge"></div>
+                            </div>
+                            <div class="wa-channel-card-details">
+                                <h4>AYOUBE SHOP <svg style="width:13px;height:13px;fill:#0ea5e9;display:inline-block;" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></h4>
+                                <p>اضغط هنا لبدء المحادثة المباشرة معنا داخل الموقع</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- شات الدعم المباشر الداخلي -->
+            <div id="support-chat-container" style="display: none;">
+                <button class="back-to-channels-btn" onclick="closeSupportChat()">
+                    ← العودة لقائمة الدعم
+                </button>
+
+                <div class="whatsapp-chat-box" style="height: calc(100vh - 170px); min-height: 400px; margin-top: 0;">
+                    <div class="wa-chat-header">
+                        <div style="font-size: 18px; font-weight: bold; cursor: pointer;">⋮</div>
+                        <div class="wa-chat-user-info">
+                            <img src="https://i.ibb.co/Cp7d53Jy/41-C00063-C252-41-D9-80-B0-BCF61-BC9-DBCE.png" alt="Ayoube Shop">
+                            <div class="wa-chat-user-details">
+                                <h4>AYOUBE SHOP <svg style="width:13px;height:13px;fill:#0ea5e9;display:inline-block;" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></h4>
+                                <span>متصل الان</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- رسائل الشات -->
+                    <div class="wa-chat-body" id="waChatBody">
+                        <div class="wa-message-bubble">
+                            مرحباً بك في AYOUBE SHOP! 🚀 اكتب رسالتك أو سجل رسالة صوتية، وسنتواصل معك مباشرة داخل الموقع.
+                            <span class="wa-message-time">18:42</span>
+                        </div>
+                    </div>
+
+                    <div class="wa-chat-footer">
+                        <button id="sendActionBtn" onclick="handleAction()" class="wa-action-btn" title="تسجيل صوتي">
+                            <svg viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/><path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
+                        </button>
+                        <input type="text" id="waMsgInput" class="wa-chat-input" placeholder="اكتب رسالتك هنا..." oninput="checkInput()">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- شريط التنقل السفلي -->
+    <div class="app-bottom-nav">
+        <a onclick="switchPage('home')" id="nav-home" class="nav-item active">
+            <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            <span>الرئيسية</span>
+        </a>
+        <a onclick="switchPage('services')" id="nav-services" class="nav-item">
+            <svg viewBox="0 0 24 24"><path d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"/></svg>
+            <span>الخدمات</span>
+        </a>
+        <a onclick="switchPage('support')" id="nav-support" class="nav-item">
+            <svg viewBox="0 0 24 24"><path d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z"/></svg>
+            <span>الدعم والتواصل</span>
+        </a>
+    </div>
+</div>
+
+<script>
+    let mediaRecorder;
+    let audioChunks = [];
+    let isRecording = false;
+
+    function switchPage(page) {
+        const homePage = document.getElementById('home-page');
+        const servicesPage = document.getElementById('services-page');
+        const supportPage = document.getElementById('support-page');
+        
+        const navHome = document.getElementById('nav-home');
+        const navServices = document.getElementById('nav-services');
+        const navSupport = document.getElementById('nav-support');
+
+        homePage.classList.remove('active');
+        servicesPage.classList.remove('active');
+        supportPage.classList.remove('active');
+        
+        navHome.classList.remove('active');
+        navServices.classList.remove('active');
+        navSupport.classList.remove('active');
+
+        if (page === 'home') {
+            homePage.classList.add('active');
+            navHome.classList.add('active');
+        } else if (page === 'services') {
+            servicesPage.classList.add('active');
+            navServices.classList.add('active');
+        } else if (page === 'support') {
+            supportPage.classList.add('active');
+            navSupport.classList.add('active');
+        }
+    }
+
+    function openChannel() {
+        document.getElementById('channels-list-view').style.display = 'none';
+        document.getElementById('channel-view-container').style.display = 'block';
+    }
+
+    function closeChannel() {
+        document.getElementById('channel-view-container').style.display = 'none';
+        document.getElementById('channels-list-view').style.display = 'block';
+    }
+
+    function openSupportChat() {
+        document.getElementById('support-list-view').style.display = 'none';
+        document.getElementById('support-chat-container').style.display = 'block';
+    }
+
+    function closeSupportChat() {
+        document.getElementById('support-chat-container').style.display = 'none';
+        document.getElementById('support-list-view').style.display = 'block';
+    }
+
+    function toggleFollow(event) {
+        event.stopPropagation();
+        const btn = document.getElementById('mainFollowBtn');
+        const bell = document.getElementById('mainBellBtn');
+        if (btn.classList.contains('followed')) {
+            btn.classList.remove('followed');
+            btn.innerText = 'متابعة';
+            bell.classList.add('muted');
+        } else {
+            btn.classList.add('followed');
+            btn.innerText = 'متابع';
+            bell.classList.remove('muted');
+        }
+    }
+
+    function toggleBell(event) {
+        event.stopPropagation();
+        const bell = document.getElementById('mainBellBtn');
+        bell.classList.toggle('muted');
+    }
+
+    function checkInput() {
+        const input = document.getElementById('waMsgInput');
+        const btn = document.getElementById('sendActionBtn');
+        
+        if (isRecording) return;
+
+        if (input.value.trim() !== "") {
+            btn.classList.add('send-icon');
+            btn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>`;
+            btn.title = "إرسال";
+        } else {
+            btn.classList.remove('send-icon');
+            btn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/><path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>`;
+            btn.title = "تسجيل صوتي";
+        }
+    }
+
+    function handleAction() {
+        const input = document.getElementById('waMsgInput');
+        const text = input.value.trim();
+        
+        if (text !== "") {
+            sendTextMessage(text);
+        } else {
+            toggleAudioRecording();
+        }
+    }
+
+    function sendTextMessage(text) {
+        const chatBody = document.getElementById('waChatBody');
+        const userBubble = document.createElement('div');
+        userBubble.className = 'wa-message-bubble user-sent-bubble';
+        userBubble.innerHTML = `
+            ${text}
+            <span class="wa-message-time">الآن</span>
+        `;
+        chatBody.appendChild(userBubble);
+        document.getElementById('waMsgInput').value = "";
+        checkInput();
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+        setTimeout(() => {
+            const replyBubble = document.createElement('div');
+            replyBubble.className = 'wa-message-bubble';
+            replyBubble.innerHTML = `
+                توصلنا برسالتك بنجاح! سيتم الرد عليك فوراً من طرف فريق AYOUBE SHOP. ⚡
+                <span class="wa-message-time">الآن</span>
+            `;
+            chatBody.appendChild(replyBubble);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }, 1000);
+    }
+
+    // تشغيل وإيقاف التسجيل الصوتي الحقيقي
+    async function toggleAudioRecording() {
+        const btn = document.getElementById('sendActionBtn');
+        const chatBody = document.getElementById('waChatBody');
+
+        if (!isRecording) {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                mediaRecorder = new MediaRecorder(stream);
+                audioChunks = [];
+
+                mediaRecorder.ondataavailable = event => {
+                    audioChunks.push(event.data);
+                };
+
+                mediaRecorder.onstop = () => {
+                    const audioBlob = new Blob(audioChunks, { type: 'audio/mp3' });
+                    const audioUrl = URL.createObjectURL(audioBlob);
+
+                    const audioBubble = document.createElement('div');
+                    audioBubble.className = 'wa-message-bubble user-sent-bubble';
+                    audioBubble.innerHTML = `
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <audio controls src="${audioUrl}" style="height: 32px; max-width: 190px;"></audio>
+                        </div>
+                        <span class="wa-message-time">الآن</span>
+                    `;
+                    chatBody.appendChild(audioBubble);
+                    chatBody.scrollTop = chatBody.scrollHeight;
+
+                    // رد تلقائي
+                    setTimeout(() => {
+                        const replyBubble = document.createElement('div');
+                        replyBubble.className = 'wa-message-bubble';
+                        replyBubble.innerHTML = `
+                            توصلنا بالرسالة الصوتية بنجاح! سنقوم بالاستماع إليها والرد في أقرب وقت. 🎧
+                            <span class="wa-message-time">الآن</span>
+                        `;
+                        chatBody.appendChild(replyBubble);
+                        chatBody.scrollTop = chatBody.scrollHeight;
+                    }, 1000);
+                };
+
+                mediaRecorder.start();
+                isRecording = true;
+                btn.classList.add('recording-pulse');
+                btn.title = "إيقاف التسجيل وإرسال الصوت";
+            } catch (err) {
+                alert("المرجو السماح للمتصفح بالوصول إلى الميكروفون لتسجيل الصوت.");
+            }
+        } else {
+            mediaRecorder.stop();
+            isRecording = false;
+            btn.classList.remove('recording-pulse');
+            checkInput();
+        }
+    }
+</script>
+
+</body>
+</html>
