@@ -267,12 +267,6 @@
             to { opacity: 1; transform: scale(1); }
         }
 
-        .channels-header-area {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 10px 0 12px 0;
-        }
         .channels-title {
             font-size: 18px;
             font-weight: 900;
@@ -286,7 +280,7 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            height: calc(100vh - 220px);
+            height: calc(100vh - 170px);
             min-height: 420px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.06);
             margin-bottom: 20px;
@@ -374,25 +368,6 @@
         .wa-ch-footer-note span {
             color: #25d366;
             font-weight: 900;
-        }
-
-        .back-to-channels-btn {
-            background: #f1f5f9;
-            border: 1px solid #cbd5e1;
-            color: #0f172a;
-            font-size: 12px;
-            font-weight: 800;
-            cursor: pointer;
-            padding: 8px 14px;
-            border-radius: 12px;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            transition: 0.2s;
-        }
-        .back-to-channels-btn:hover {
-            background: #e2e8f0;
         }
 
         /* ستايل صفحة الخدمات */
@@ -690,18 +665,9 @@
 
             <!-- عرض القناة من الداخل -->
             <div id="channel-view-container">
-                <button class="back-to-channels-btn" onclick="closeChannel()">
-                    ← العودة لقائمة القنوات
-                </button>
-
-                <div class="channels-header-area" style="margin-top: 0;">
-                    <span style="font-size: 11px; color: #22c55e; font-weight: 800;">● 77K متابع نشط</span>
-                    <h3 class="channels-title">قناة المتجر الرسمية</h3>
-                </div>
-
-                <div class="wa-embedded-channel">
+                <div class="wa-embedded-channel" style="margin-top: 5px;">
                     <div class="wa-ch-header">
-                        <div style="font-size: 16px; font-weight: bold; cursor: pointer;">⋮</div>
+                        <div style="font-size: 16px; font-weight: bold; cursor: pointer;" onclick="closeChannel()">←</div>
                         <div class="wa-ch-user-info">
                             <img src="https://i.ibb.co/Cp7d53Jy/41-C00063-C252-41-D9-80-B0-BCF61-BC9-DBCE.png" alt="Ayoube Shop">
                             <div class="wa-ch-user-details">
